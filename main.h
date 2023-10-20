@@ -7,8 +7,10 @@
 #include <limits.h>
 #include <unistd.h>
 /**
- * format - structure
- * match - new name 
+ * struct format - structure
+ * @id: format specifier
+ * @f: functions
+ * @match: array
  */
 
 typedef struct format
