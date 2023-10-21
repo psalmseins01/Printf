@@ -6,10 +6,8 @@
  */
 
 int printf_chr(va_list v)
-{
-	char ch;
+}
 
-	ch = va_arg(v, int);
-	_putchar(ch);
+	_putchar(va_arg(v, int));
 	return (1);
 }
