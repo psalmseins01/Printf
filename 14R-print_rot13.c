@@ -7,31 +7,24 @@
 
 int print_rot13(va_list val)
 {
-	int i, j, counter = 0;
-	int k = 0;
+	int i, j;
+	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *s = va_arg(val, char*);
-	char a[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char b[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-
-	for (i = 0; s[i] != '\0'; i++)
+	for (j = 0; s[j]; j++)
 	{
-		k = 0;
-		for (j = 0; a[j] && !k; j++)
+		if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
+			_putchar(s[j]);
+		else
 		{
-			if (s[i] == a[j])
+			for (i = 0; i <= 52; i++)
 			{
-				_putchar(b[j]);
-				counter++;
-				k = 1;
+				if (s[j] == rot13[i])
+					_putchar(ROT13[i]);
 			}
-
-		}
-		if (!k)
-		{
-			_putchar(s[i]);
-			counter++;
 		}
 	}
-	return (counter);
+
+	return (j);
 }
